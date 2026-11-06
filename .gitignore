@@ -1,0 +1,17 @@
+.venv/
+node_modules/
+**/.claude/
+**/.vscode/
+*.code-workspace
+**/refes/
+**/.env
+**/.env.*
+**/*.local.*
+**/*.mp4
+!clubbb/assets/video_hojas.mp4
+!ESTETICA/assets/video/hero-loop.mp4
+!CONSULTORIO ODONTOLOGICO/assets/video/6192869-hd_1920_1080_30fps.mp4
+/Sin título-*.png
+Thumbs.db
+Desktop.ini
+.DS_Store

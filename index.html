@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#102016">
+    <meta name="description" content="Portfolio de Lorenzo Vilche Souza, diseñador visual y creador 3D de Montevideo. Diseño gráfico, contenido, web y animación de productos.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Lorenzo Vilche Souza — Diseño visual y 3D">
+    <meta property="og:description" content="Ideas visuales, objetos reales y experiencias que se mueven. Portfolio creativo desde Montevideo, Uruguay.">
+    <title>Lorenzo Vilche Souza — Diseño visual y 3D</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.172.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.172.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script>document.documentElement.classList.add("js-enabled");</script>
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Ir al contenido</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="wordmark" href="#inicio" aria-label="Lorenzo Vilche Souza — inicio">
+        <span class="wordmark-initial" aria-hidden="true">LV<span>.</span></span>
+        <span class="wordmark-label">LORENZO<br>VILCHE SOUZA</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#proyectos">Proyectos <span>04</span></a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a class="header-location" href="https://maps.google.com/?q=Montevideo,+Uruguay" target="_blank" rel="noreferrer">
+        <span class="location-dot"></span> Montevideo, UY
+      </a>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-mark">LV / <span id="current-year-short">26</span></span> DISEÑO VISUAL · 3D · WEB</p>
+            <h1 id="hero-title">Lorenzo<br><span class="hero-surname">Vilche <span>Souza.</span></span></h1>
+            <p class="hero-summary">Diseñador creativo y creador 3D. Transformo productos e ideas en contenido visual claro, atractivo y pensado para personas reales.</p>
+            <div class="hero-actions">
+              <a class="button button-lime" href="#proyectos">Ver proyectos <span aria-hidden="true">↘</span></a>
+              <a class="button button-line" href="mailto:vilchelorenzo157@gmail.com">Hablemos <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+
+          <div class="hero-object" id="hero-object">
+            <div class="object-backdrop" aria-hidden="true"></div>
+            <div class="object-crosshair crosshair-top" aria-hidden="true"></div>
+            <div class="object-crosshair crosshair-bottom" aria-hidden="true"></div>
+            <img class="object-poster" src="./assets/portfolio/cogollo.jpg" alt="" fetchpriority="high" decoding="async">
+            <canvas class="object-canvas" id="object-canvas" aria-label="Modelo tridimensional del proyecto Cogollo. Arrastrá para rotarlo." role="img"></canvas>
+            <div class="object-index" aria-hidden="true"><span>OBJETO 001</span><span>0.45° S / 56.16° O</span></div>
+            <button class="object-load" id="object-load" type="button" hidden>VER MODELO 3D <span aria-hidden="true">↗</span></button>
+            <p class="object-caption"><span class="object-caption-dot"></span> COGOLLO · 1.282 PIEZAS ENSAMBLADAS</p>
+            <label class="object-rotation" for="object-rotation">
+              <span>ROTAR OBJETO</span>
+              <input id="object-rotation" type="range" min="0" max="100" value="50" aria-label="Rotar el modelo 3D de Cogollo">
+            </label>
+          </div>
+        </div>
+
+        <div class="hero-bottom">
+          <span>DISEÑO QUE SE PUEDE MOVER.</span>
+          <a href="#proyectos">BAJÁ PARA EXPLORAR <span aria-hidden="true">↓</span></a>
+          <span>MONTEVIDEO · URUGUAY</span>
+        </div>
+      </section>
+
+      <div class="ticker" aria-label="Áreas de trabajo">
+        <div class="ticker-track" aria-hidden="true">
+          <span>DISEÑO GRÁFICO</span><i>✳</i><span>CONTENIDO VISUAL</span><i>✳</i><span>BLENDER / THREE.JS</span><i>✳</i><span>LANDING PAGES</span><i>✳</i>
+          <span>DISEÑO GRÁFICO</span><i>✳</i><span>CONTENIDO VISUAL</span><i>✳</i><span>BLENDER / THREE.JS</span><i>✳</i><span>LANDING PAGES</span><i>✳</i>
+        </div>
+      </div>
+
+      <section class="projects section-wrap" id="proyectos" aria-labelledby="projects-title">
+        <div class="section-top">
+          <p class="section-index reveal"><span>01</span> TRABAJO SELECCIONADO</p>
+          <span class="section-aside reveal">2024 — 2026 <i></i> 05 PROYECTOS</span>
+        </div>
+        <div class="projects-heading reveal">
+          <h2 id="projects-title">Un poco de lo<br>que <span>hago.</span></h2>
+          <p>Identidades, sitios y piezas digitales con una idea detrás y atención hasta el último detalle.</p>
+        </div>
+
+        <div class="project-grid">
+          <a class="project-card card-cogollo reveal" href="./clubbb/index.html" target="_blank" rel="noreferrer" aria-label="Cogollo — sitio web de un club cannábico en Uruguay. Abrir proyecto">
+            <div class="project-image cogollo-image">
+              <img src="./assets/portfolio/cogollo.jpg" alt="" loading="lazy" decoding="async">
+              <span class="project-chip">3D / WEB</span>
+              <span class="project-counter">01 — 05</span>
+              <span class="project-image-word cogollo-word">COGOLLO<span>®</span></span>
+              <span class="project-image-foot">CULTIVO COLECTIVO · URUGUAY</span>
+            </div>
+            <div class="project-detail"><div><h3>Cogollo</h3><p>Un objeto 3D con 1.282 piezas. Un sitio que gira a su alrededor.</p></div><span class="project-arrow" aria-hidden="true">↗</span></div>
+          </a>
+
+          <a class="project-card card-focaccia reveal" href="./Focaccia-y-Mate-Propuesta.pdf" target="_blank" rel="noreferrer" aria-label="Focaccia y Mate — rebranding, identidad visual y aplicaciones. Abrir PDF del proyecto">
+            <div class="project-image focaccia-image">
+              <img src="./assets/portfolio/focaccia-rebranding-01.jpg" alt="" loading="lazy" decoding="async">
+              <img src="./assets/portfolio/focaccia-rebranding-02.jpg" alt="" loading="lazy" decoding="async">
+              <span class="project-chip">IDENTIDAD VISUAL</span>
+              <span class="project-counter">02 — 05</span>
+              <span class="project-image-foot">FOCACCIA, ÑOQUIS Y MATE</span>
+            </div>
+            <div class="project-detail"><div><h3>Focaccia y Mate</h3><p>Rebranding · Sistema gráfico · Aplicaciones</p></div><span class="project-arrow" aria-hidden="true">↗</span></div>
+          </a>
+
+          <a class="project-card card-aurelia reveal" href="./ESTETICA/index.html" target="_blank" rel="noreferrer" aria-label="Aurelia Clinic — sitio web para medicina estética y bienestar. Abrir proyecto">
+            <div class="project-image aurelia-image">
+              <img src="./assets/portfolio/aurelia-clinic.jpg" alt="" loading="lazy" decoding="async">
+              <span class="project-chip">DISEÑO WEB</span>
+              <span class="project-counter">03 — 05</span>
+              <span class="project-image-word serif-word">Aurelia.</span>
+              <span class="project-image-foot">MEDICINA ESTÉTICA DE AUTOR</span>
+            </div>
+            <div class="project-detail"><div><h3>Aurelia Clinic</h3><p>Medicina, estética y bienestar integral.</p></div><span class="project-arrow" aria-hidden="true">↗</span></div>
+          </a>
+
+          <a class="project-card card-alata reveal" href="./CONSULTORIO%20ODONTOLOGICO/index.html" target="_blank" rel="noreferrer" aria-label="Alata — sitio web para consultorio odontológico. Abrir proyecto">
+            <div class="project-image alata-image">
+              <img src="./assets/portfolio/alata.jpg" alt="" loading="lazy" decoding="async">
+              <span class="project-chip">DISEÑO WEB</span>
+              <span class="project-counter">04 — 05</span>
+              <span class="project-image-word alata-word">alata<span>®</span></span>
+              <span class="project-image-foot">ODONTOLOGÍA DE PRECISIÓN</span>
+            </div>
+            <div class="project-detail"><div><h3>Alata</h3><p>Una experiencia digital a la altura de una sonrisa.</p></div><span class="project-arrow" aria-hidden="true">↗</span></div>
+          </a>
+
+          <a class="project-card card-nutri reveal" href="./NUTRICIONISTA/nutriamor-landing.html" target="_blank" rel="noreferrer" aria-label="Nutri Amor — landing page de Victoria Tejera, nutricionista materno-infantil. Abrir proyecto">
+            <div class="project-image nutri-image">
+              <div class="nutri-art" aria-hidden="true"><span>nutri amor</span><i>by Victoria Tejera</i><strong>comer<br>con calma.</strong><small>MONTEVIDEO · NUTRICIÓN MATERNO-INFANTIL</small></div>
+              <span class="project-chip">LANDING PAGE</span>
+              <span class="project-counter">05 — 05</span>
+            </div>
+            <div class="project-detail"><div><h3>Nutri Amor</h3><p>Un acompañamiento cercano, desde el comienzo.</p></div><span class="project-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </div>
+        <p class="projects-note reveal"><span>↳</span> Cada proyecto abre su sitio o pieza correspondiente.</p>
+      </section>
+
+      <section class="about" id="sobre-mi" aria-labelledby="about-title">
+        <div class="about-inner section-wrap">
+          <div class="section-top">
+            <p class="section-index reveal"><span>02</span> DE DÓNDE VENGO</p>
+            <span class="section-aside reveal">MONTEVIDEO, URUGUAY</span>
+          </div>
+          <div class="about-grid">
+            <h2 class="about-title reveal" id="about-title">Primero<br>escucho.<br>Después <span>diseño.</span></h2>
+            <div class="about-copy reveal">
+              <p class="about-lead">Soy Lorenzo: creativo de Montevideo. Hago diseño gráfico, contenido, web y animación 3D.</p>
+              <p>Antes de enfocarme en lo visual, aprendí a conversar con personas: entender qué necesitan, qué dudas tienen y qué les importa. Hoy llevo esa misma curiosidad a cada marca, producto y página que diseño.</p>
+              <div class="about-signature">LORENZO VILCHE SOUZA <span>·</span> DISEÑO + 3D</div>
+              <div class="about-facts">
+                <div><span>DESDE</span><strong>Montevideo, UY</strong></div>
+                <div><span>IDIOMAS</span><strong>Español · Inglés básico</strong></div>
+                <div><span>DISPONIBILIDAD</span><strong>Lunes a sábados</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="details-grid">
+            <div class="detail-block reveal">
+              <p class="detail-label"><span>03</span> LO QUE HAGO</p>
+              <ul class="skill-list">
+                <li><span>Contenido para productos y redes</span><span>01</span></li>
+                <li><span>Identidad, piezas gráficas y catálogos</span><span>02</span></li>
+                <li><span>Diseño web · HTML, CSS y JavaScript</span><span>03</span></li>
+                <li><span>Animación 3D · Blender + Three.js</span><span>04</span></li>
+                <li><span>Marketing, ventas y atención al cliente</span><span>05</span></li>
+              </ul>
+            </div>
+            <div class="detail-block detail-education reveal">
+              <p class="detail-label"><span>04</span> EN MOVIMIENTO</p>
+              <div class="education-item"><span>EN CURSO</span><h3>Facultad de Información y Comunicación</h3><p>Universidad de la República · Udelar</p></div>
+              <div class="education-item"><span>2025</span><h3>Desarrollo web</h3><p>HTML · CSS · JavaScript</p></div>
+              <div class="education-courses"><span>También:</span> Diseño Gráfico · Marketing Digital · Educación secundaria, opción Social-Humanística</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact section-wrap" id="contacto" aria-labelledby="contact-title">
+        <div class="contact-top">
+          <p class="section-index reveal"><span>05</span> CADA BUEN PROYECTO EMPIEZA CON UNA CHARLA</p>
+          <span class="contact-flower reveal" aria-hidden="true">✳</span>
+        </div>
+        <h2 class="contact-heading reveal" id="contact-title">¿Lo pensamos<br><span>juntos?</span></h2>
+        <p class="contact-copy reveal">Si tenés una idea, querés contarme de un proyecto o simplemente saludar, escribime.</p>
+        <div class="contact-links reveal">
+          <a class="contact-email" href="mailto:vilchelorenzo157@gmail.com">vilchelorenzo157@gmail.com <span aria-hidden="true">↗</span></a>
+          <div class="contact-secondary">
+            <a href="tel:+59895293396">TEL <span>+598 95 293 396</span></a>
+            <a href="https://wa.me/59895293396" target="_blank" rel="noreferrer">WHATSAPP <span>ESCRIBIME ↗</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-wrap">
+      <a class="footer-signature" href="#inicio">LV<span>.</span> <small>LORENZO VILCHE SOUZA</small></a>
+      <span>MONTEVIDEO, URUGUAY · <span id="current-year">2026</span></span>
+      <a href="#inicio">VOLVER ARRIBA ↑</a>
+    </footer>
+  </body>
+</html>
