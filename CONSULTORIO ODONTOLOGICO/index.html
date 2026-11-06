@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alata — Consultorio Odontológico</title>
+<meta name="description" content="Alata Consultorio Odontológico. Odontología de precisión con sensibilidad artística: estética dental, implantes, ortodoncia invisible. Buenos Aires." />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:  'var(--ink)',
+          ink2: 'var(--ink-2)',
+          bone: 'var(--bone)',
+          ice:  {
+            100: 'var(--ice-100)',
+            200: 'var(--ice-200)',
+            300: 'var(--ice-300)',
+            400: 'var(--ice-400)',
+            500: 'var(--ice-500)',
+          },
+        },
+        fontFamily: {
+          display: ['"Fraunces"', 'serif'],
+          sans: ['"Inter"', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+
+<!-- GSAP + Lenis -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-ink font-sans antialiased">
+
+<!-- ══════════════════ PRELOADER ══════════════════ -->
+<div id="preloader" class="preloader" aria-hidden="true">
+  <div class="preloader-spinner"></div>
+  <p class="preloader-word">A&thinsp;L&thinsp;A&thinsp;T&thinsp;A</p>
+  <p class="preloader-tag">Consultorio Odontológico</p>
+</div>
+
+<!-- ══════════════════ HEADER ══════════════════ -->
+<header id="siteHeader" class="site-header" data-theme="dark">
+  <div class="header-inner">
+    <a href="#inicio" class="brand" aria-label="Alata — inicio">
+      <svg class="brand-mark" viewBox="0 0 48 30" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+        <path d="M4 12 L13 4 L22 12" />
+        <path d="M26 12 L35 4 L44 12" />
+        <path d="M6 18 Q24 34 42 18" />
+      </svg>
+      <span class="brand-name">Alata<span class="brand-sub">Consultorio Odontológico</span></span>
+    </a>
+
+    <nav class="header-nav" aria-label="Principal">
+      <a href="#nosotros" class="nav-link">Nosotros</a>
+      <a href="#servicios" class="nav-link">Servicios</a>
+      <a href="#equipo" class="nav-link">Equipo</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="tel:+541145678899" class="header-phone">+54 11 4567-8899</a>
+      <a href="#contacto" class="btn-pill">Reservar turno <span class="btn-plus">+</span></a>
+    </div>
+
+    <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+  <nav class="mobile-nav" aria-label="Menú móvil">
+    <a href="#nosotros" class="mobile-link"><em>01</em> Nosotros</a>
+    <a href="#servicios" class="mobile-link"><em>02</em> Servicios</a>
+    <a href="#equipo" class="mobile-link"><em>03</em> Equipo</a>
+    <a href="#faq" class="mobile-link"><em>04</em> FAQ</a>
+    <a href="#contacto" class="mobile-link"><em>05</em> Contacto</a>
+  </nav>
+  <p class="mobile-menu-foot">Buenos Aires · Recoleta</p>
+</div>
+
+<main id="inicio">
+
+  <!-- ══════════════════ HERO SPLIT ══════════════════ -->
+  <section class="hero-split" data-header="light-panel">
+    <div class="hero-left">
+      <div class="hero-left-inner">
+        <svg class="hero-logo" viewBox="0 0 48 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 12 L13 4 L22 12" />
+          <path d="M26 12 L35 4 L44 12" />
+          <path d="M6 18 Q24 34 42 18" />
+        </svg>
+        <h1 class="hero-brand">Alata<br/><span>Consultorio<br/>Odontológico</span></h1>
+      </div>
+      <div class="hero-left-foot">
+        <p class="hero-based">Nos encontrás en:</p>
+        <ul class="hero-locations">
+          <li>Recoleta</li>
+          <li>Palermo</li>
+          <li>Belgrano</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <video
+        class="hero-video"
+        autoplay muted loop playsinline
+        poster="assets/img/d-dental-office-poS_R5ZQSno-unsplash.jpg"
+      >
+        <source src="assets/video/6192869-hd_1920_1080_30fps.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-video-shade" aria-hidden="true"></div>
+
+      <h2 class="hero-headline">
+        <span class="hl-line">Diseñamos sonrisas</span>
+        <span class="hl-line"><em>tan sanas como</em></span>
+        <span class="hl-line"><em>hermosas</em></span>
+      </h2>
+
+      <p class="hero-note">Combinamos ciencia avanzada<br/>con la mirada de un artista.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ STATEMENT EDITORIAL ══════════════════ -->
+  <section id="nosotros" class="statement" data-header="light">
+    <div class="statement-media" data-parallax-media>
+      <img src="assets/img/pexels-holoshuriken-18524124.jpg" alt="Tecnología de diagnóstico digital en Alata" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="statement-body">
+      <h2 class="statement-title" data-words>
+        <span class="st-line">Odontología <em>de</em> precisión</span>
+        <span class="st-line st-indent-l">para resultados</span>
+        <span class="st-line st-indent-c"><em>excepcionales</em></span>
+      </h2>
+
+      <div class="statement-cols">
+        <p class="statement-copy" data-fade>
+          Cada tratamiento en Alata comienza con un diagnóstico digital completo:
+          escaneo intraoral 3D, tomografía de baja radiación y diseño de sonrisa
+          asistido por software. La tecnología nos da exactitud; nuestro equipo
+          le da calidez.
+        </p>
+        <div class="statement-stats" data-fade>
+          <div class="stat"><span class="stat-n" data-count="14">0</span><span class="stat-l">años de trayectoria</span></div>
+          <div class="stat"><span class="stat-n" data-count="9800">0</span><span class="stat-l">sonrisas tratadas</span></div>
+          <div class="stat"><span class="stat-n" data-count="98">0</span><span class="stat-l">% de pacientes satisfechos</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ SERVICIOS INMERSIVOS (paneles) ══════════════════ -->
+  <section id="servicios" class="services-immersive" data-header="dark">
+    <div class="services-nav" aria-hidden="true">
+      <p class="services-nav-label">Servicios:</p>
+      <ul id="servicesNavList">
+        <li data-panel="0" class="is-active">Estética Dental</li>
+        <li data-panel="1">Implantes</li>
+        <li data-panel="2">Ortodoncia Invisible</li>
+      </ul>
+    </div>
+
+    <!-- Panel 1 -->
+    <article class="service-panel" data-panel-index="0">
+      <div class="panel-photos">
+        <figure class="panel-photo ph-a"><img src="assets/img/kamal-hoseinianzade-FCWGwXH55xo-unsplash.jpg" alt="Sonrisa tratada con estética dental" loading="lazy" decoding="async" /></figure>
+        <figure class="panel-photo ph-b"><img src="assets/img/katarzyna-zygnerska-44jaETSVX2I-unsplash.jpg" alt="Detalle de carillas de porcelana" loading="lazy" decoding="async" /></figure>
+      </div>
+      <h3 class="panel-title"><span>Estética</span><span class="pt-2"><em>Dental</em></span></h3>
+      <div class="panel-solutions">
+        <p class="panel-solutions-label">Nuestras soluciones:</p>
+        <p class="panel-solutions-desc">Carillas, diseño de sonrisa y armonización del gesto, planificados digitalmente antes de tocar un solo diente.</p>
+        <ul>
+          <li><a href="#contacto">Carillas de porcelana <span aria-hidden="true">↗</span></a></li>
+          <li><a href="#contacto">Diseño digital de sonrisa <span aria-hidden="true">↗</span></a></li>
+          <li><a href="#contacto">Coronas libres de metal <span aria-hidden="true">↗</span></a></li>
+          <li><a href="#contacto">Microcarillas sin desgaste <span aria-hidden="true">↗</span></a></li>
+        </ul>
+        <a href="#contacto" class="btn-pill btn-pill-light">Ver más <span class="btn-plus">+</span></a>
+      </div>
+    </article>
+
+    <!-- Panel 2 -->
+    <article class="service-panel" data-panel-index="1">
+      <div class="panel-photos">
+        <figure class="panel-photo ph-a"><img src="assets/img/isaiah-mcclean-DrVJk1EaPSc-unsplash.jpg" alt="Procedimiento de implante dental" loading="lazy" decoding="async" /></figure>
+        <figure class="panel-photo ph-b"><img src="assets/img/marcos-paulo-prado-0pOlBhSsF80-unsplash.jpg" alt="Paciente en tratamiento de implantes" loading="lazy" decoding="async" /></figure>
+      </div>
+      <h3 class="panel-title"><span>Implantes</span><span class="pt-2"><em>Dentales</em></span></h3>
+      <div class="panel-solutions">
+        <p class="panel-solutions-label">Nuestras soluciones:</p>
+        <p class="panel-solutions-desc">Rehabilitación fija y permanente con cirugía guiada por computadora y carga inmediata cuando el caso lo permite.</p>
+        <ul>
+          <li><a href="#contacto">Implante unitario <span aria-hidden="true">↗</span></a></li>
+          <li><a href="#contacto">All-on-X arcada completa <span aria-hidden="true">↗</span></a></li>
+          <li><a href="#contacto">Cirugía guiada 3D <span aria-hidden="true">↗</span></a></li>
+          <li><a href="#contacto">Injertos y regeneración ósea <span aria-hidden="true">↗</span></a></li>
+        </ul>
+        <a href="#contacto" class="btn-pill btn-pill-light">Ver más <span class="btn-plus">+</span></a>
+      </div>
+    </article>
+
+    <!-- Panel 3 -->
+    <article class="service-panel" data-panel-index="2">
+      <div class="panel-photos">
+        <figure class="panel-photo ph-a"><img src="assets/img/jose-vazquez-4SUyx4KQ5Ik-unsplash.jpg" alt="Paciente con alineadores invisibles" loading="lazy" decoding="async" /></figure>
+        <figure class="panel-photo ph-b"><img src="assets/img/ozkan-guner-8YUH8Jne5S0-unsplash.jpg" alt="Control de ortodoncia invisible" loading="lazy" decoding="async" /></figure>
+      </div>
+      <h3 class="panel-title"><span>Ortodoncia</span><span class="pt-2"><em>Invisible</em></span></h3>
+      <div class="panel-solutions">
+        <p class="panel-solutions-label">Nuestras soluciones:</p>
+        <p class="panel-solutions-desc">Alineadores transparentes hechos a medida, con simulación del resultado final antes de empezar.</p>
+        <ul>
+          <li><a href="#contacto">Alineadores para adultos <span aria-hidden="true">↗</span></a></li>
+          <li><a href="#contacto">Ortodoncia teen <span aria-hidden="true">↗</span></a></li>
+          <li><a href="#contacto">Simulación 3D del resultado <span aria-hidden="true">↗</span></a></li>
+          <li><a href="#contacto">Contención y seguimiento <span aria-hidden="true">↗</span></a></li>
+        </ul>
+        <a href="#contacto" class="btn-pill btn-pill-light">Ver más <span class="btn-plus">+</span></a>
+      </div>
+    </article>
+  </section>
+
+  <!-- ══════════════════ LISTA NUMERADA ══════════════════ -->
+  <section class="services-index" data-header="dark">
+    <div class="section-shell">
+      <div class="services-cards">
+        <a href="#contacto" class="scard" data-stagger>
+          <img src="assets/img/pexels-emily-gaibor-2161401886-37458097.jpg" alt="Higiene profesional" loading="lazy" decoding="async" />
+          <span>Higiene profesional</span>
+        </a>
+        <a href="#contacto" class="scard" data-stagger>
+          <img src="assets/img/katarzyna-zygnerska-44jaETSVX2I-unsplash.jpg" alt="Carillas" loading="lazy" decoding="async" />
+          <span>Carillas</span>
+        </a>
+        <a href="#contacto" class="scard" data-stagger>
+          <img src="assets/img/pexels-itslauravillela-28407748.jpg" alt="Implantes dentales" loading="lazy" decoding="async" />
+          <span>Implantes</span>
+        </a>
+        <a href="#contacto" class="scard" data-stagger>
+          <img src="assets/img/pexels-layth-mushreq-2148270719-37272932.jpg" alt="All-on-X rehabilitación completa" loading="lazy" decoding="async" />
+          <span>All-on-X</span>
+        </a>
+      </div>
+
+      <ul class="index-list">
+        <li class="index-row" data-stagger>
+          <span class="ir-num">04</span><span class="ir-name">Blanqueamiento</span>
+          <a href="#contacto" class="ir-btn" aria-label="Más sobre blanqueamiento">↗</a>
+        </li>
+        <li class="index-row" data-stagger>
+          <span class="ir-num">05</span><span class="ir-name">Endodoncia</span>
+          <a href="#contacto" class="ir-btn" aria-label="Más sobre endodoncia">↗</a>
+        </li>
+        <li class="index-row" data-stagger>
+          <span class="ir-num">06</span><span class="ir-name">Odontopediatría</span>
+          <a href="#contacto" class="ir-btn" aria-label="Más sobre odontopediatría">↗</a>
+        </li>
+        <li class="index-row" data-stagger>
+          <span class="ir-num">07</span><span class="ir-name">Periodoncia</span>
+          <a href="#contacto" class="ir-btn" aria-label="Más sobre periodoncia">↗</a>
+        </li>
+        <li class="index-row" data-stagger>
+          <span class="ir-num">08</span><span class="ir-name">Sedación consciente</span>
+          <a href="#contacto" class="ir-btn" aria-label="Más sobre sedación consciente">↗</a>
+        </li>
+        <li class="index-row" data-stagger>
+          <span class="ir-num">09</span><span class="ir-name">Urgencias</span>
+          <a href="#contacto" class="ir-btn" aria-label="Más sobre urgencias">↗</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══════════════════ POR QUÉ / ARCO ══════════════════ -->
+  <section class="why-arc" data-header="dark">
+    <p class="why-tag" data-fade>¿Por qué<br/>elegirnos?</p>
+    <h2 class="why-title">
+      <span class="wt-line">Estamos <em>aquí</em> para</span>
+      <span class="wt-line wt-indent">realzar tu sonrisa</span>
+    </h2>
+
+    <div class="arc-stage">
+      <svg class="arc-svg" viewBox="0 0 1200 420" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <path id="smileArc" d="M60,40 C 240,420 960,420 1140,40" stroke="currentColor" stroke-width="1.2"/>
+      </svg>
+      <div class="arc-dot" style="--ax:8%;  --ay:22%;" data-fade><strong>Tecnología 3D</strong><span>Diagnóstico y cirugía guiada digital</span></div>
+      <div class="arc-dot" style="--ax:32%; --ay:78%;" data-fade><strong>Sin dolor</strong><span>Protocolos de sedación consciente</span></div>
+      <div class="arc-dot" style="--ax:66%; --ay:78%;" data-fade><strong>Un solo lugar</strong><span>Todas las especialidades integradas</span></div>
+      <div class="arc-dot" style="--ax:90%; --ay:22%;" data-fade><strong>Garantía escrita</strong><span>Respaldo real sobre cada tratamiento</span></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ EQUIPO ══════════════════ -->
+  <section id="equipo" class="team" data-header="dark">
+    <h2 class="team-title" aria-label="Nuestro equipo"><span>Nuestro</span> <em>Equipo</em></h2>
+    <div class="team-row">
+      <figure class="team-card" data-stagger>
+        <img src="assets/img/marcos-paulo-prado-0pOlBhSsF80-unsplash.jpg" alt="Dra. Camila Alata" loading="lazy" decoding="async" />
+        <figcaption><strong>Dra. Camila Alata</strong><span>Directora · Rehabilitación oral</span></figcaption>
+      </figure>
+      <figure class="team-card tc-mid" data-stagger>
+        <img src="assets/img/isaiah-mcclean-DrVJk1EaPSc-unsplash.jpg" alt="Dr. Mateo Ferreyra" loading="lazy" decoding="async" />
+        <figcaption><strong>Dr. Mateo Ferreyra</strong><span>Cirugía e implantes</span></figcaption>
+      </figure>
+      <figure class="team-card" data-stagger>
+        <img src="assets/img/jose-vazquez-4SUyx4KQ5Ik-unsplash.jpg" alt="Dra. Sofía Lombardi" loading="lazy" decoding="async" />
+        <figcaption><strong>Dra. Sofía Lombardi</strong><span>Ortodoncia y estética</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ══════════════════ GALERÍA HORIZONTAL ══════════════════ -->
+  <section class="gallery" data-header="light">
+    <div class="gallery-head">
+      <p class="eyebrow" data-fade>El espacio</p>
+      <h2 class="gallery-title" data-fade>Un consultorio <em>pensado</em> para la calma.</h2>
+    </div>
+    <div class="gallery-pin" id="galleryPin">
+      <div class="gallery-strip" id="galleryStrip">
+        <figure class="gitem"><img src="assets/img/d-dental-office-poS_R5ZQSno-unsplash.jpg" alt="Sala de atención principal" loading="lazy" decoding="async" /></figure>
+        <figure class="gitem gitem-tall"><img src="assets/img/pexels-emily-gaibor-2161401886-37458097.jpg" alt="Recepción de Alata" loading="lazy" decoding="async" /></figure>
+        <figure class="gitem"><img src="assets/img/pexels-holoshuriken-18524124.jpg" alt="Equipamiento digital" loading="lazy" decoding="async" /></figure>
+        <figure class="gitem gitem-tall"><img src="assets/img/pexels-itslauravillela-28407748.jpg" alt="Detalle del consultorio" loading="lazy" decoding="async" /></figure>
+        <figure class="gitem"><img src="assets/img/pexels-layth-mushreq-2148270719-37272932.jpg" alt="Sala de espera" loading="lazy" decoding="async" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ TESTIMONIOS ══════════════════ -->
+  <section class="testimonials" data-header="light">
+    <div class="t-shell">
+      <p class="eyebrow" data-fade>Testimonios</p>
+      <div class="t-slider" id="testimonialSlider">
+        <blockquote class="t-slide is-active">
+          <p><em>“Nunca imaginé</em> que ir al dentista pudiera sentirse tan tranquilo. Los resultados de mi ortodoncia invisible superaron todo lo que esperaba.”</p>
+          <cite>Valentina R. — paciente desde 2022</cite>
+        </blockquote>
+        <blockquote class="t-slide">
+          <p>“Mis implantes quedaron <em>completamente naturales.</em> El nivel de detalle del equipo es algo que no había visto en ninguna otra clínica.”</p>
+          <cite>Martín F. — paciente desde 2019</cite>
+        </blockquote>
+        <blockquote class="t-slide">
+          <p>“El espacio en sí ya <em>reduce la ansiedad.</em> Sumado a la calidez del equipo, hace que uno quiera volver.”</p>
+          <cite>Julieta S. — paciente desde 2021</cite>
+        </blockquote>
+        <blockquote class="t-slide">
+          <p>“Llevé a mis hijos con miedo de su parte y salieron <em>sonriendo.</em> La atención pediátrica es excepcional.”</p>
+          <cite>Diego M. — paciente desde 2023</cite>
+        </blockquote>
+      </div>
+      <div class="t-dots" id="testimonialDots" role="tablist" aria-label="Seleccionar testimonio"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ FAQ ══════════════════ -->
+  <section id="faq" class="faq" data-header="light">
+    <div class="faq-shell">
+      <h2 class="faq-title" data-fade>Preguntas <em>frecuentes</em></h2>
+      <div class="faq-list">
+        <details class="faq-item" data-stagger>
+          <summary>¿La primera consulta tiene costo? <span class="faq-plus" aria-hidden="true">+</span></summary>
+          <p>No. La primera consulta de diagnóstico es sin cargo e incluye una evaluación clínica completa y un plan de tratamiento por escrito.</p>
+        </details>
+        <details class="faq-item" data-stagger>
+          <summary>¿Trabajan con obras sociales o prepagas? <span class="faq-plus" aria-hidden="true">+</span></summary>
+          <p>Trabajamos con las principales prepagas por sistema de reintegro y ofrecemos planes de financiación propios en cuotas sin interés.</p>
+        </details>
+        <details class="faq-item" data-stagger>
+          <summary>¿Cuánto dura un tratamiento de ortodoncia invisible? <span class="faq-plus" aria-hidden="true">+</span></summary>
+          <p>Depende del caso: la mayoría se resuelve entre 8 y 18 meses. En tu primera visita simulamos digitalmente el resultado y te damos un plazo estimado real.</p>
+        </details>
+        <details class="faq-item" data-stagger>
+          <summary>¿Los implantes duelen? <span class="faq-plus" aria-hidden="true">+</span></summary>
+          <p>La cirugía se realiza con anestesia local y, si lo preferís, sedación consciente. La gran mayoría de nuestros pacientes retoma su rutina al día siguiente.</p>
+        </details>
+        <details class="faq-item" data-stagger>
+          <summary>¿Atienden urgencias? <span class="faq-plus" aria-hidden="true">+</span></summary>
+          <p>Sí, reservamos espacios diarios para urgencias de pacientes y no pacientes. Llamanos y te coordinamos la atención en el día.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════════ FOOTER (curva + oscuro) ══════════════════ -->
+<footer id="contacto" class="footer" data-header="dark">
+  <div class="footer-curve" aria-hidden="true"></div>
+  <div class="footer-inner">
+
+    <svg class="footer-mark" viewBox="0 0 48 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <path d="M4 12 L13 4 L22 12" />
+      <path d="M26 12 L35 4 L44 12" />
+      <path d="M6 18 Q24 34 42 18" />
+    </svg>
+
+    <div class="footer-cta">
+      <div class="footer-social">
+        <a href="#" class="soc" aria-label="Instagram de Alata">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" class="soc" aria-label="LinkedIn de Alata">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.4 8.6H2.6V21h2.8V8.6zM4 3.5a1.7 1.7 0 100 3.4 1.7 1.7 0 000-3.4zM21.4 13.9c0-3.2-1.7-4.7-4-4.7-1.8 0-2.6 1-3.1 1.7V9.4H11.5V21h2.8v-6.2c0-1.6.7-2.6 2.1-2.6 1.3 0 2.1.9 2.1 2.6V21h2.9v-7.1z"/></svg>
+        </a>
+      </div>
+      <h2 class="footer-headline">¿Listo para transformar<br/>tu sonrisa? <em>Reservá tu consulta.</em></h2>
+    </div>
+
+    <div class="footer-grid">
+      <div>
+        <p class="f-label">Visitanos</p>
+        <p>Av. del Libertador 3480, Piso 4<br/>Recoleta, Buenos Aires</p>
+      </div>
+      <div>
+        <p class="f-label">Horario</p>
+        <p>Lun a Vie · 9:00 – 19:00<br/>Sáb · 9:00 – 13:00</p>
+      </div>
+      <div>
+        <p class="f-label">Contacto</p>
+        <p><a href="tel:+541145678899" class="f-link">+54 11 4567-8899</a><br/>
+        <a href="mailto:hola@alatadental.com" class="f-link">hola@alatadental.com</a></p>
+      </div>
+      <div>
+        <p class="f-label">Navegación</p>
+        <p>
+          <a href="#nosotros" class="f-link">Nosotros</a><br/>
+          <a href="#servicios" class="f-link">Servicios</a><br/>
+          <a href="#equipo" class="f-link">Equipo</a>
+        </p>
+      </div>
+    </div>
+
+    <p class="footer-wordmark" aria-hidden="true">A&nbsp;L&nbsp;A&nbsp;T&nbsp;A</p>
+
+    <div class="footer-legal">
+      <p>© 2026 Alata Consultorio Odontológico</p>
+      <p>Sitio ficticio con fines de demostración</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
