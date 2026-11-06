@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurelia Clinic — Medicina Estética de Autor</title>
+  <meta name="description" content="Aurelia Clinic. Donde la medicina se encuentra con la belleza natural. Medicina estética, naturopatía y bienestar integral.">
+
+  <!-- Google Fonts: Playfair Display (serif editorial) + Inter (sans UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#top" class="brand">Aurelia<span class="brand-dot">.</span></a>
+
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="#top">Inicio</a></li>
+          <li><a href="#clinica">Clínica</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#tratamientos">Tratamientos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn search-btn" type="button" aria-label="Buscar">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="6.25" stroke="currentColor" stroke-width="1.2"/>
+            <line x1="12.6" y1="12.7" x2="17" y2="17" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+      <!-- Video de fondo a pantalla completa. Reemplazar con recurso de alta resolución -->
+      <video class="hero-video" autoplay muted loop playsinline poster="assets/img/hero-poster.jpg" aria-hidden="true">
+        <source src="assets/video/hero-loop.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-content">
+        <p class="eyebrow reveal">Medicina Estética de Autor</p>
+        <h1 class="hero-title reveal">
+          Donde la medicina se<br>
+          encuentra con la <em>belleza natural</em>
+        </h1>
+        <div class="hero-actions reveal">
+          <a href="#servicios" class="btn btn-outline-light">
+            Explorar servicios
+            <span class="arrow">↗</span>
+          </a>
+          <a href="#contacto" class="btn btn-solid-dark">Reservar ahora</a>
+        </div>
+      </div>
+
+      <div class="hero-scroll-cue" aria-hidden="true">
+        <span></span>
+        <p>Desplázate</p>
+      </div>
+    </section>
+
+    <!-- ==================== FILOSOFÍA / TRANSICIÓN ==================== -->
+    <section class="philosophy">
+      <div class="container philosophy-inner">
+        <div class="philosophy-text reveal">
+          <p class="eyebrow">Nuestra Filosofía</p>
+          <p class="philosophy-copy">
+            Creemos en una atención <em>personalizada</em> y consciente, donde cada
+            protocolo se diseña a la medida de tu piel, tu cuerpo y tu ritmo de vida.
+            La ciencia médica y el arte estético conviven en equilibrio para revelar
+            tu belleza más auténtica.
+          </p>
+        </div>
+
+        <div class="philosophy-graphic reveal" aria-hidden="true">
+          <!-- Gráfico SVG: círculos finos entrecruzados, geometría tipo mandala -->
+          <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="mandala">
+            <circle cx="200" cy="140" r="90" stroke="currentColor" stroke-width="1"/>
+            <circle cx="200" cy="260" r="90" stroke="currentColor" stroke-width="1"/>
+            <circle cx="122" cy="170" r="90" stroke="currentColor" stroke-width="1"/>
+            <circle cx="278" cy="170" r="90" stroke="currentColor" stroke-width="1"/>
+            <circle cx="122" cy="230" r="90" stroke="currentColor" stroke-width="1"/>
+            <circle cx="278" cy="230" r="90" stroke="currentColor" stroke-width="1"/>
+            <circle cx="200" cy="200" r="90" stroke="currentColor" stroke-width="1"/>
+            <circle cx="200" cy="200" r="150" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== NUESTRA CLÍNICA (ASIMÉTRICA) ==================== -->
+    <section class="clinic" id="clinica">
+      <div class="container clinic-grid">
+        <div class="clinic-media reveal">
+          <!-- Fotografía arquitectónica / interiorismo de la clínica -->
+          <img src="assets/img/clinic-interior.jpg" alt="Interior arquitectónico de la clínica Aurelia" loading="lazy">
+        </div>
+
+        <div class="clinic-panel reveal">
+          <svg class="clinic-blob" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path fill="currentColor" d="M431,300Q451,400,364,447Q277,494,197,443Q117,392,110,296Q103,200,190,143Q277,86,364,133Q451,180,431,300Z"/>
+          </svg>
+          <div class="clinic-panel-content">
+            <p class="eyebrow">Nuestra Clínica</p>
+            <h2 class="clinic-heading">Creado con <em>pasión</em> para una atención excepcional</h2>
+            <p class="clinic-copy">
+              Cada rincón de nuestro espacio fue diseñado para invitar a la calma:
+              materiales nobles, luz natural y una arquitectura que acompaña el
+              proceso de transformación de quienes nos visitan.
+            </p>
+            <a href="#contacto" class="btn btn-outline-dark">
+              Conoce el espacio
+              <span class="arrow">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SERVICIOS (TARJETAS) ==================== -->
+    <section class="services" id="servicios">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Paquetes de Servicios</p>
+          <h2>Protocolos diseñados <em>a tu medida</em></h2>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-card-media">
+              <img src="assets/img/service-facial.jpg" alt="Tratamiento de estética facial" loading="lazy">
+            </div>
+            <div class="service-card-body">
+              <h3>Estética Facial</h3>
+              <p>Armonización, luminosidad y firmeza con técnicas mínimamente invasivas.</p>
+            </div>
+            <button class="circle-arrow-btn" type="button" aria-label="Ver estética facial">
+              <span class="arrow">↗</span>
+            </button>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-card-media">
+              <img src="assets/img/service-body.jpg" alt="Tratamiento de contorno corporal" loading="lazy">
+            </div>
+            <div class="service-card-body">
+              <h3>Contorno Corporal</h3>
+              <p>Modelado, tonificación y reducción de medidas con protocolos de autor.</p>
+            </div>
+            <button class="circle-arrow-btn" type="button" aria-label="Ver contorno corporal">
+              <span class="arrow">↗</span>
+            </button>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-card-media">
+              <img src="assets/img/service-regenerative.jpg" alt="Medicina regenerativa" loading="lazy">
+            </div>
+            <div class="service-card-body">
+              <h3>Medicina Regenerativa</h3>
+              <p>Bioestimulación celular para una piel más joven, sana y resiliente.</p>
+            </div>
+            <button class="circle-arrow-btn" type="button" aria-label="Ver medicina regenerativa">
+              <span class="arrow">↗</span>
+            </button>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-card-media">
+              <img src="assets/img/service-wellness.jpg" alt="Bienestar integral" loading="lazy">
+            </div>
+            <div class="service-card-body">
+              <h3>Bienestar Integral</h3>
+              <p>Naturopatía, nutrición y rituales de recuperación cuerpo-mente.</p>
+            </div>
+            <button class="circle-arrow-btn" type="button" aria-label="Ver bienestar integral">
+              <span class="arrow">↗</span>
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DIRECTORIO DE TRATAMIENTOS ==================== -->
+    <section class="treatments" id="tratamientos">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Directorio</p>
+          <h2>Explora todos los <em>tratamientos</em></h2>
+        </div>
+
+        <div class="tabs reveal" role="tablist" aria-label="Categorías de tratamientos">
+          <button class="tab-pill is-active" type="button" role="tab" aria-selected="true" data-category="estetica">Estética Médica</button>
+          <button class="tab-pill" type="button" role="tab" aria-selected="false" data-category="naturopatia">Naturopatía</button>
+          <button class="tab-pill" type="button" role="tab" aria-selected="false" data-category="bienestar">Paquetes de Bienestar</button>
+        </div>
+
+        <ul class="treatments-list reveal" id="treatmentsList">
+          <!-- Estética Médica -->
+          <li class="treatment-item" data-category="estetica">
+            <span class="treatment-index">01</span>
+            <span class="treatment-name">Toxina Botulínica</span>
+            <span class="treatment-arrow">↗</span>
+          </li>
+          <li class="treatment-item" data-category="estetica">
+            <span class="treatment-index">02</span>
+            <span class="treatment-name">Ácido Hialurónico</span>
+            <span class="treatment-arrow">↗</span>
+          </li>
+          <li class="treatment-item" data-category="estetica">
+            <span class="treatment-index">03</span>
+            <span class="treatment-name">Bioestimuladores de Colágeno</span>
+            <span class="treatment-arrow">↗</span>
+          </li>
+          <li class="treatment-item" data-category="estetica">
+            <span class="treatment-index">04</span>
+            <span class="treatment-name">Mesoterapia Facial</span>
+            <span class="treatment-arrow">↗</span>
+          </li>
+
+          <!-- Naturopatía -->
+          <li class="treatment-item" data-category="naturopatia" hidden>
+            <span class="treatment-index">01</span>
+            <span class="treatment-name">Nutrición Ortomolecular</span>
+            <span class="treatment-arrow">↗</span>
+          </li>
+          <li class="treatment-item" data-category="naturopatia" hidden>
+            <span class="treatment-index">02</span>
+            <span class="treatment-name">Fitoterapia Personalizada</span>
+            <span class="treatment-arrow">↗</span>
+          </li>
+          <li class="treatment-item" data-category="naturopatia" hidden>
+            <span class="treatment-index">03</span>
+            <span class="treatment-name">Drenaje Linfático</span>
+            <span class="treatment-arrow">↗</span>
+          </li>
+          <li class="treatment-item" data-category="naturopatia" hidden>
+            <span class="treatment-index">04</span>
+            <span class="treatment-name">Terapia Detox</span>
+            <span class="treatment-arrow">↗</span>
+          </li>
+
+          <!-- Paquetes de Bienestar -->
+          <li class="treatment-item" data-category="bienestar" hidden>
+            <span class="treatment-index">01</span>
+            <span class="treatment-name">Ritual Facial Signature</span>
+            <span class="treatment-arrow">↗</span>
+          </li>
+          <li class="treatment-item" data-category="bienestar" hidden>
+            <span class="treatment-index">02</span>
+            <span class="treatment-name">Programa Anti-edad Integral</span>
+            <span class="treatment-arrow">↗</span>
+          </li>
+          <li class="treatment-item" data-category="bienestar" hidden>
+            <span class="treatment-index">03</span>
+            <span class="treatment-name">Experiencia Bienestar Total</span>
+            <span class="treatment-arrow">↗</span>
+          </li>
+          <li class="treatment-item" data-category="bienestar" hidden>
+            <span class="treatment-index">04</span>
+            <span class="treatment-name">Renovación Corporal</span>
+            <span class="treatment-arrow">↗</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer" id="contacto">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="brand brand-footer">Aurelia<span class="brand-dot">.</span></a>
+        <p>Medicina estética de autor.<br>Donde la ciencia se encuentra con la belleza natural.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#clinica">Clínica</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#tratamientos">Tratamientos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:hola@aureliaclinic.com">hola@aureliaclinic.com</a></li>
+          <li><a href="tel:+000000000">+00 000 000 000</a></li>
+          <li>Av. Principal 123, Ciudad</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Síguenos</h4>
+        <ul>
+          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Pinterest</a></li>
+          <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 Aurelia Clinic. Todos los derechos reservados.</p>
+      <p>Diseño &amp; desarrollo de experiencia digital.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== CTA FLOTANTE ==================== -->
+  <a href="#contacto" class="floating-cta" aria-label="Reservar cita">
+    <span>Reservar cita</span>
+    <span class="arrow">↗</span>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
