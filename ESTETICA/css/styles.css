@@ -1,0 +1,921 @@
+/* ==========================================================================
+   Aurelia Clinic — Premium Landing Page
+   Estética: lujo discreto — minimalista, editorial, líneas finas, espacio negativo
+   ========================================================================== */
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ---------- Design Tokens ---------- */
+:root {
+  --color-bg: #FDFBF7;
+  --color-bg-alt: #F5F3EC;
+  --color-ink: #1A1A1A;
+  --color-ink-soft: #4A4742;
+  --color-gold: #B89B72;
+  --color-gold-soft: #E8E1D3;
+  --color-line: rgba(26, 26, 26, 0.12);
+
+  --font-serif: 'Playfair Display', 'Georgia', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --container-width: 1280px;
+  --gutter: 1.5rem;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 0.6s var(--ease);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 2.5rem;
+  }
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ---------- Reusable Typography ---------- */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.25rem;
+}
+
+.section-heading {
+  max-width: 640px;
+  margin-bottom: 3.5rem;
+}
+
+.section-heading h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1.2;
+  color: var(--color-ink);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.9rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: background-color var(--transition-base), color var(--transition-base), border-color var(--transition-base), transform var(--transition-base);
+  white-space: nowrap;
+}
+
+.btn .arrow {
+  display: inline-block;
+  transition: transform var(--transition-base);
+}
+
+.btn:hover .arrow {
+  transform: translate(2px, -2px);
+}
+
+.btn-outline-light {
+  border: 1px solid rgba(253, 251, 247, 0.55);
+  color: #FDFBF7;
+}
+
+.btn-outline-light:hover {
+  background-color: #FDFBF7;
+  color: var(--color-ink);
+}
+
+.btn-solid-dark {
+  background-color: var(--color-ink);
+  color: #FDFBF7;
+  border: 1px solid var(--color-ink);
+}
+
+.btn-solid-dark:hover {
+  background-color: transparent;
+  color: #FDFBF7;
+}
+
+.btn-outline-dark {
+  border: 1px solid var(--color-line);
+  color: var(--color-ink);
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--color-ink);
+  color: var(--color-bg);
+  border-color: var(--color-ink);
+}
+
+/* ---------- Scroll Reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding-block: 1.5rem;
+  transition: padding var(--transition-base), border-color var(--transition-base);
+  border-bottom: 1px solid transparent;
+}
+
+/* El desenfoque vive en un ::before aislado (no en .site-header) para que
+   .site-header nunca reciba `filter`/`backdrop-filter`: esa propiedad en un
+   ancestro crea un nuevo containing block para descendientes `position: fixed`
+   (como el panel de navegación móvil), rompiendo su anclaje al viewport. */
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: rgba(253, 251, 247, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.site-header.is-scrolled {
+  padding-block: 1rem;
+  border-color: var(--color-line);
+}
+
+.site-header.is-scrolled::before {
+  opacity: 1;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-ink);
+  z-index: 101;
+}
+
+.site-header:not(.is-scrolled) .brand {
+  color: #FDFBF7;
+}
+
+.brand-dot {
+  color: var(--color-gold);
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.main-nav a {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #FDFBF7;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.site-header.is-scrolled .main-nav a {
+  color: var(--color-ink);
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width var(--transition-base);
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.icon-btn {
+  color: #FDFBF7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-base), opacity var(--transition-base);
+}
+
+.site-header.is-scrolled .icon-btn {
+  color: var(--color-ink);
+}
+
+.search-btn {
+  display: none;
+}
+
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 26px;
+  z-index: 101;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: #FDFBF7;
+  transition: background-color var(--transition-base), transform var(--transition-base), opacity var(--transition-base);
+}
+
+.site-header.is-scrolled .menu-toggle span {
+  background-color: var(--color-ink);
+}
+
+.menu-toggle.is-active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.menu-toggle.is-active span {
+  background-color: var(--color-ink) !important;
+}
+
+@media (min-width: 1024px) {
+  .search-btn {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .main-nav {
+    position: static;
+    background: none;
+    height: auto;
+    width: auto;
+  }
+
+  .main-nav ul {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 1023px) {
+  .main-nav {
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform var(--transition-base);
+  }
+
+  .main-nav.is-open {
+    transform: translateX(0);
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .main-nav a {
+    color: var(--color-ink);
+    font-size: 1.1rem;
+  }
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: #FDFBF7;
+  /* Fondo de respaldo mientras se integra el vídeo definitivo */
+  background: radial-gradient(circle at 30% 20%, #3a352c 0%, #1a1815 70%);
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  background-color: transparent;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 18, 16, 0.35) 0%, rgba(20, 18, 16, 0.25) 40%, rgba(20, 18, 16, 0.65) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 6rem;
+  padding-top: 8rem;
+  max-width: 760px;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  line-height: 1.15;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hero-scroll-cue {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 2.5rem;
+  z-index: 2;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: #FDFBF7;
+}
+
+.hero-scroll-cue span {
+  width: 1px;
+  height: 48px;
+  background-color: rgba(253, 251, 247, 0.5);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-scroll-cue span::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FDFBF7;
+  animation: scrollLine 2.2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0% { top: -100%; }
+  50% { top: 0; }
+  100% { top: 100%; }
+}
+
+.hero-scroll-cue p {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+
+@media (min-width: 768px) {
+  .hero-scroll-cue {
+    display: flex;
+  }
+}
+
+/* ==========================================================================
+   PHILOSOPHY / TRANSITION
+   ========================================================================== */
+.philosophy {
+  padding-block: 6rem;
+  background-color: var(--color-bg);
+}
+
+.philosophy-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  text-align: center;
+}
+
+.philosophy-text {
+  max-width: 620px;
+}
+
+.philosophy-copy {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+  line-height: 1.5;
+  color: var(--color-ink-soft);
+  font-weight: 400;
+}
+
+.philosophy-graphic {
+  width: 100%;
+  max-width: 320px;
+  color: var(--color-gold);
+  /* La animación de rotación infinita del mandala hace que su bounding box
+     crezca hasta ~lado*1.41 en los ángulos intermedios (p. ej. 45°); se
+     contiene aquí para que nunca cause overflow horizontal de la página. */
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.mandala {
+  width: 100%;
+  height: auto;
+  animation: spinSlow 60s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (min-width: 1024px) {
+  .philosophy-inner {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+  }
+
+  .philosophy-text {
+    text-align: left;
+  }
+}
+
+/* ==========================================================================
+   CLINIC (ASYMMETRIC SECTION)
+   ========================================================================== */
+.clinic {
+  padding-block: 6rem;
+  background-color: var(--color-bg-alt);
+  overflow: hidden;
+}
+
+.clinic-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.clinic-media {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: var(--color-gold-soft);
+}
+
+.clinic-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.clinic-panel {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.clinic-blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 130%;
+  max-width: 640px;
+  transform: translate(-50%, -50%);
+  color: var(--color-gold-soft);
+  z-index: 0;
+}
+
+.clinic-panel-content {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+}
+
+.clinic-heading {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1.25;
+  margin-bottom: 1.5rem;
+}
+
+.clinic-copy {
+  color: var(--color-ink-soft);
+  margin-bottom: 2.25rem;
+  max-width: 420px;
+}
+
+@media (min-width: 1024px) {
+  .clinic-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+}
+
+/* ==========================================================================
+   SERVICES (CARDS)
+   ========================================================================== */
+.services {
+  padding-block: 6rem;
+  background-color: var(--color-bg);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+.service-card {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 4px;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: var(--color-ink-soft);
+}
+
+.service-card-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.service-card-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 18, 16, 0) 40%, rgba(20, 18, 16, 0.75) 100%);
+}
+
+.service-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--ease);
+}
+
+.service-card:hover .service-card-media img {
+  transform: scale(1.05);
+}
+
+.service-card-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2rem;
+  color: #FDFBF7;
+}
+
+.service-card-body h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.service-card-body p {
+  font-size: 0.9rem;
+  max-width: 260px;
+  opacity: 0.85;
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.circle-arrow-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-ink);
+  color: #FDFBF7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  opacity: 0;
+  transform: translateY(-8px) scale(0.9);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.service-card:hover .circle-arrow-btn {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================================================
+   TREATMENTS DIRECTORY
+   ========================================================================== */
+.treatments {
+  padding-block: 6rem;
+  background-color: var(--color-bg-alt);
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.tab-pill {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  transition: background-color var(--transition-base), color var(--transition-base), border-color var(--transition-base);
+}
+
+.tab-pill:hover {
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+.tab-pill.is-active {
+  background-color: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-bg);
+}
+
+.treatments-list {
+  border-top: 1px solid var(--color-line);
+}
+
+.treatment-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--color-line);
+  transition: padding-left var(--transition-base);
+  cursor: pointer;
+}
+
+.treatment-item:hover {
+  padding-left: 1rem;
+}
+
+.treatment-item[hidden] {
+  display: none;
+}
+
+.treatment-index {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--color-gold);
+  width: 2.5rem;
+  flex-shrink: 0;
+}
+
+.treatment-name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+  font-weight: 400;
+  flex-grow: 1;
+  transition: transform var(--transition-base);
+}
+
+.treatment-item:hover .treatment-name {
+  transform: translateX(8px);
+}
+
+.treatment-arrow {
+  font-size: 1.1rem;
+  opacity: 0;
+  transform: translate(-6px, 6px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+  color: var(--color-gold);
+}
+
+.treatment-item:hover .treatment-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+  background-color: var(--color-ink);
+  color: rgba(253, 251, 247, 0.8);
+  padding-top: 5rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+.footer-brand .brand-footer {
+  color: #FDFBF7;
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+
+.footer-brand p {
+  font-size: 0.9rem;
+  max-width: 320px;
+  line-height: 1.7;
+}
+
+.footer-col h4 {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-col a {
+  font-size: 0.9rem;
+  transition: color var(--transition-base);
+}
+
+.footer-col a:hover {
+  color: #FDFBF7;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-block: 1.75rem;
+  border-top: 1px solid rgba(253, 251, 247, 0.12);
+  font-size: 0.78rem;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ==========================================================================
+   FLOATING CTA
+   ========================================================================== */
+.floating-cta {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--color-ink);
+  color: #FDFBF7;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 12px 32px rgba(26, 26, 26, 0.25);
+  transition: transform var(--transition-base), background-color var(--transition-base);
+}
+
+.floating-cta:hover {
+  transform: translateY(-3px);
+  background-color: var(--color-gold);
+}
+
+.floating-cta .arrow {
+  transition: transform var(--transition-base);
+}
+
+.floating-cta:hover .arrow {
+  transform: translate(2px, -2px);
+}
