@@ -13,13 +13,13 @@ respaldo.
 
 ## Publicar en GitHub Pages
 
-El workflow de GitHub Actions en `.github/workflows/pages.yml` publica el sitio
-automáticamente cada vez que se actualiza la rama `main`.
+1. Abrí **Settings → Pages** en el repositorio de GitHub.
+2. En **Build and deployment**, elegí **Deploy from a branch**.
+3. Seleccioná la rama `main` y la carpeta `/ (root)`, y guardá los cambios.
+4. Esperá a que finalice la primera publicación. GitHub muestra la dirección
+   pública en **Settings → Pages**.
 
-1. Subí el proyecto a un repositorio público de GitHub, en la rama `main`.
-2. En **Settings → Pages**, elegí **GitHub Actions** como fuente de publicación.
-3. Esperá a que finalice el workflow **Deploy portfolio to GitHub Pages**. La URL
-   pública aparece en **Settings → Pages** y en el resultado del workflow.
+Las nuevas confirmaciones que subas a `main` se publican automáticamente.
 
 ## Contenido
 
