@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>COGOLLO — Club Cannábico · Uruguay</title>
+<meta name="description" content="Club cannábico sin fines de lucro en Uruguay. Cultivo colectivo, legal y trazable al amparo de la Ley 19.172 y el registro IRCCA. Solo para mayores de 18 años.">
+<meta property="og:title" content="COGOLLO — Club Cannábico · Uruguay">
+<meta property="og:description" content="Cultivo colectivo. Legal. Transparente. Club cannábico regulado por la Ley 19.172.">
+<meta property="og:image" content="assets/foto_flor.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23c8f95f' d='M12 2c1.2 2.6 1.8 5.2 1.8 7.8 1.4-2 3.3-3.4 5.7-4.2-.9 2.5-2.2 4.6-4 6.2 2.3-.4 4.5-.1 6.5.9-2.1 1.1-4.3 1.6-6.6 1.4 1.6 1.2 2.8 2.8 3.6 4.8-2.2-.5-4.1-1.5-5.6-3.1.1 1.9-.2 3.6-.9 5.2-.7-1.6-1-3.3-.9-5.2-1.5 1.6-3.4 2.6-5.6 3.1.8-2 2-3.6 3.6-4.8-2.3.2-4.5-.3-6.6-1.4 2-1 4.2-1.3 6.5-.9-1.8-1.6-3.1-3.7-4-6.2 2.4.8 4.3 2.2 5.7 4.2 0-2.6.6-5.2 1.8-7.8z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bloqueado">
+
+<!-- ================= AGE GATE ================= -->
+<div id="puerta">
+  <div class="puerta-caja">
+    <span class="etiqueta-mono">Cogollo · Club Cannábico · Uruguay</span>
+    <h1>Este sitio es para mayores de 18 años.</h1>
+    <p>Contenido informativo sobre un club de membresía cannábico regulado por la Ley 19.172. Para continuar, confirmá tu edad.</p>
+    <div class="puerta-botones">
+      <button class="boton boton-lima" id="puerta-si">Soy mayor de 18</button>
+      <button class="boton boton-fantasma" id="puerta-no">Todavía no</button>
+    </div>
+    <p id="puerta-rechazo">Este contenido no está disponible para menores de edad.<br>Podés informarte sobre consumo responsable en <a href="https://www.ircca.gub.uy" target="_blank" rel="noopener">ircca.gub.uy</a>.</p>
+  </div>
+</div>
+
+<!-- ================= LOADER ================= -->
+<div id="carga">
+  <div>
+    <div class="barra"><i id="progreso"></i></div>
+    <div class="porcentaje" id="porcentaje">0%</div>
+  </div>
+</div>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <a class="marca" href="#inicio">
+    <svg class="marca-hoja" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1.2 2.6 1.8 5.2 1.8 7.8 1.4-2 3.3-3.4 5.7-4.2-.9 2.5-2.2 4.6-4 6.2 2.3-.4 4.5-.1 6.5.9-2.1 1.1-4.3 1.6-6.6 1.4 1.6 1.2 2.8 2.8 3.6 4.8-2.2-.5-4.1-1.5-5.6-3.1.1 1.9-.2 3.6-.9 5.2-.7-1.6-1-3.3-.9-5.2-1.5 1.6-3.4 2.6-5.6 3.1.8-2 2-3.6 3.6-4.8-2.3.2-4.5-.3-6.6-1.4 2-1 4.2-1.3 6.5-.9-1.8-1.6-3.1-3.7-4-6.2 2.4.8 4.3 2.2 5.7 4.2 0-2.6.6-5.2 1.8-7.8z"/></svg>
+    <span>COGOLLO <small>Club Cannábico</small></span>
+  </a>
+  <nav class="nav-links">
+    <a href="#club">El club</a>
+    <a href="#cultivo">Cultivo</a>
+    <a href="#membresia">Membresía</a>
+    <a href="#legal">Legal</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <a class="boton boton-lima" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Hablemos <i class="flecha">↗</i></a>
+</header>
+
+<main>
+
+  <!-- ================= HERO (pin 3D: el cogollo se ensambla al scrollear) ================= -->
+  <section class="hero" id="inicio">
+    <div class="hero-fijo">
+      <div id="escena"></div>
+      <video id="escena-video" data-src="assets/video_hojas.mp4" preload="none" muted loop playsinline></video>
+      <div class="hero-vineta" aria-hidden="true"></div>
+
+      <div class="hero-contenido">
+        <span class="pill reveal visible">Club de membresía · Ley 19.172</span>
+        <h1 class="titulo-gigante hero-titulo titulo-split">Cultivo colectivo. Legal. Transparente.</h1>
+        <p class="hero-bajada">Un club cannábico sin fines de lucro en Uruguay: cultivamos juntos, con trazabilidad total y dentro del marco regulado por el IRCCA.</p>
+        <div class="hero-pie">
+          <dl class="ficha">
+            <div class="dato"><dt>Origen</dt><dd>Uruguay</dd></div>
+            <div class="dato"><dt>Marco</dt><dd>Ley 19.172</dd></div>
+            <div class="dato"><dt>Registro</dt><dd>IRCCA</dd></div>
+            <div class="dato"><dt>Piezas</dt><dd>1.282</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="hero-final">
+        <h2 class="titulo-seccion">Cada pieza en su lugar.</h2>
+        <p>Así tratamos la flor: 1.282 fragmentos escaneados de un cogollo real, ensamblados con la misma precisión con la que registramos cada gramo del club.</p>
+        <span class="pista pista-final" id="pista">Arrastrá para explorar</span>
+      </div>
+
+      <div class="hero-indicador" aria-hidden="true"><span>Scrolleá</span><i></i></div>
+    </div>
+  </section>
+
+  <!-- ================= MARQUEE FINO ================= -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-pista" data-marquee>
+      <span>Cultivo legal <b>✳</b></span><span>Trazable <b>✳</b></span><span>Sin intermediarios <b>✳</b></span><span>Comunidad <b>✳</b></span><span>Flor real, medida y registrada <b>✳</b></span>
+    </div>
+  </div>
+
+  <!-- ================= VIDEO FULL-BLEED ================= -->
+  <section class="naturaleza" id="naturaleza">
+    <div class="naturaleza-media" data-zoom-scroll>
+      <video src="assets/video_hojas.mp4" muted loop playsinline autoplay preload="metadata"></video>
+    </div>
+    <div class="naturaleza-frase">
+      <span class="etiqueta-mono reveal">La planta primero</span>
+      <p class="titulo-seccion titulo-split">De la tierra a la comunidad, sin desvíos.</p>
+    </div>
+  </section>
+
+  <!-- ================= STATEMENT CENTRADO ================= -->
+  <section class="statement" id="confianza">
+    <div class="statement-fondo" style="background-image:url('assets/foto_hoja.jpg')" aria-hidden="true"></div>
+    <div class="statement-caja">
+      <span class="pill reveal">Nuestra promesa</span>
+      <h2 class="titulo-seccion titulo-split">Rigor de cultivo. Precisión de registro. Confianza total.</h2>
+      <p class="reveal" data-retraso="2">Primeros en llevar el estándar de trazabilidad completa a un club de membresía: cada gramo tiene origen, historia y destino verificables.</p>
+      <a class="flecha-scroll reveal" data-retraso="3" href="#acceso" aria-label="Seguir bajando">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= EL PROBLEMA ================= -->
+  <section class="seccion clara problema" id="acceso">
+    <div class="problema-cabecera">
+      <span class="pill reveal">Lo que resolvemos</span>
+      <h2 class="titulo-seccion titulo-split">El mayor problema del acceso: la confianza.</h2>
+      <p class="reveal" data-retraso="2">Medí lo que consumís, conocé su origen y confiá en el proceso — con el respaldo del regulador y de una comunidad que cultiva para sí misma, no para vender.</p>
+    </div>
+    <div class="problema-collage">
+      <figure class="flotante f1 reveal" data-paralaje="0.10"><img src="assets/foto_flor.jpg" alt="Flor de cannabis en planta, cultivo del club"></figure>
+      <div class="flotante f2 tarjeta-lima reveal" data-paralaje="0.16" data-retraso="1">
+        <span class="etiqueta-mono">Retiro mensual</span>
+        <strong>40 g<small>/socio</small></strong>
+        <span class="tarjeta-pie">tope legal · IRCCA</span>
+      </div>
+      <figure class="flotante f3 reveal" data-paralaje="0.07" data-retraso="2"><img src="assets/foto_led.jpg" alt="Planta de cannabis bajo iluminación LED de cultivo"></figure>
+      <div class="flotante f4 tarjeta-oscura reveal" data-paralaje="0.13" data-retraso="3">
+        <span class="etiqueta-mono">En floración</span>
+        <strong>99<small>plantas máx.</small></strong>
+        <span class="tarjeta-pie">registro auditable</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EL CLUB ================= -->
+  <section class="seccion clara" id="club">
+    <div class="club-encabezado">
+      <span class="pill reveal">El club</span>
+      <h2 class="titulo-seccion titulo-split">Lo que la planta hace naturalmente, nosotros lo cuidamos.</h2>
+      <p class="reveal" data-retraso="2">Somos una asociación civil de socios que cultiva cannabis de forma colectiva, controlada y sin fines de lucro. Cada flor que llega a un socio fue cultivada, cosechada y registrada dentro del club — sin mercado negro, sin intermediarios, sin incertidumbre.</p>
+    </div>
+
+    <div class="club-galeria">
+      <figure class="club-figura alta reveal" data-paralaje="0.06">
+        <img src="assets/foto_growroom.jpg" alt="Sala de cultivo indoor con hileras de plantas">
+        <figcaption>Sala de cultivo · ambiente controlado</figcaption>
+      </figure>
+      <figure class="club-figura baja reveal" data-retraso="1" data-paralaje="0.1">
+        <img src="assets/foto_indoor.jpg" alt="Plantas de cannabis en cuarto de cultivo indoor">
+        <figcaption>Ciclo de floración · monitoreo diario</figcaption>
+      </figure>
+    </div>
+
+    <dl class="club-specs">
+      <div class="spec reveal"><dt>Genéticas</dt><dd>Seleccionadas por perfil de terpenos y estabilidad, adaptadas al cultivo indoor.</dd></div>
+      <div class="spec reveal" data-retraso="1"><dt>Cosecha</dt><dd>Manual, en punto óptimo de maduración, con curado lento en frascos.</dd></div>
+      <div class="spec reveal" data-retraso="2"><dt>Registro</dt><dd>Cada lote queda documentado: fecha, planta madre, peso seco y socio destinatario.</dd></div>
+    </dl>
+  </section>
+
+  <!-- ================= CULTIVO / TRAZABILIDAD ================= -->
+  <section class="seccion oscura" id="cultivo">
+    <div class="cultivo-cabecera">
+      <span class="pill reveal">Cultivo &amp; trazabilidad</span>
+    </div>
+
+    <div class="marquee-gigante" aria-label="Solo flor real, medida y registrada">
+      <div class="marquee-pista" data-marquee>
+        <span>Solo flor real, medida y registrada.&nbsp;</span>
+      </div>
+    </div>
+
+    <figure class="cultivo-panoramica reveal" data-paralaje="0.05">
+      <img src="assets/foto_dosel.jpg" alt="Dosel de plantas de cannabis en floración visto desde arriba">
+      <figcaption class="etiqueta-mono">Lote 07 · floración · semana 6</figcaption>
+    </figure>
+
+    <div class="cultivo-grid">
+      <article class="carta reveal">
+        <span class="pill">Cultivo indoor</span>
+        <h3>Ambiente controlado, sin sorpresas</h3>
+        <p>Temperatura, humedad y fotoperíodo monitoreados durante todo el ciclo de la planta.</p>
+      </article>
+      <article class="carta reveal" data-retraso="1">
+        <span class="pill">Control de calidad</span>
+        <h3>Curado lento y revisión de cada lote</h3>
+        <p>Secado colgado, curado en frasco y descarte de todo material que no cumpla el estándar del club.</p>
+      </article>
+      <article class="carta reveal" data-retraso="2">
+        <span class="pill">Trazabilidad</span>
+        <h3>Del esqueje al frasco de cada socio</h3>
+        <p>Cada planta tiene identificación única. El recorrido completo queda registrado y auditable ante el IRCCA.</p>
+      </article>
+      <article class="carta reveal" data-retraso="3">
+        <span class="pill">Co-gestión</span>
+        <h3>El club es de los socios</h3>
+        <p>Asambleas, decisiones colectivas y cuota transparente que solo cubre los costos del cultivo.</p>
+      </article>
+    </div>
+
+    <div class="cifras">
+      <div class="cifra reveal"><strong>99</strong><span>plantas máx. permitidas</span></div>
+      <div class="cifra reveal" data-retraso="1"><strong>45</strong><span>socios máx. por club</span></div>
+      <div class="cifra reveal" data-retraso="2"><strong>40<em>g</em></strong><span>por socio por mes</span></div>
+      <div class="cifra reveal" data-retraso="3"><strong>100<em>%</em></strong><span>trazable y legal</span></div>
+    </div>
+  </section>
+
+  <!-- ================= MEMBRESÍA ================= -->
+  <section class="seccion membresia" id="membresia">
+    <div class="membresia-caja">
+      <span class="pill reveal">Membresía</span>
+      <h2 class="titulo-seccion titulo-split">Asociarse es simple y 100% legal.</h2>
+      <p class="reveal" data-retraso="2">La ley uruguaya permite acceder al cannabis por tres vías: farmacias, autocultivo o clubes de membresía. Si elegís el club, este es el camino.</p>
+
+      <div class="pasos">
+        <div class="paso reveal">
+          <span class="paso-num">01</span>
+          <h3>Cumplí los requisitos</h3>
+          <p>Ser mayor de 18 años y ciudadano uruguayo o residente permanente.</p>
+        </div>
+        <div class="paso reveal" data-retraso="1">
+          <span class="paso-num">02</span>
+          <h3>Elegí el club como tu vía</h3>
+          <p>La ley permite una sola vía de acceso a la vez: farmacia, autocultivo o club.</p>
+        </div>
+        <div class="paso reveal" data-retraso="2">
+          <span class="paso-num">03</span>
+          <h3>Registrate en el IRCCA</h3>
+          <p>Te acompañamos en el trámite de inscripción como socio del club ante el regulador.</p>
+        </div>
+        <div class="paso reveal" data-retraso="3">
+          <span class="paso-num">04</span>
+          <h3>Retirá tu parte</h3>
+          <p>Hasta 40 gramos por mes, cultivados por el club, retirados personalmente en sede.</p>
+        </div>
+      </div>
+
+      <div class="membresia-cta reveal">
+        <a class="boton boton-lima" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Consultar por membresía <i class="flecha">↗</i></a>
+        <small>Cupos limitados por ley · respuesta por WhatsApp</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LEGAL ================= -->
+  <section class="seccion legal" id="legal">
+    <div class="legal-caja">
+      <div>
+        <span class="pill reveal">Marco legal</span>
+        <h2 class="titulo-seccion titulo-split">Regulados, no tolerados.</h2>
+      </div>
+      <div class="legal-lista">
+        <div class="legal-item reveal">
+          <span class="etiqueta-mono">Ley 19.172</span>
+          <div>
+            <h3>Regulación estatal del cannabis</h3>
+            <p>Desde diciembre de 2013, Uruguay regula la producción, distribución y consumo de cannabis. Los clubes de membresía son una de las tres vías legales de acceso.</p>
+          </div>
+        </div>
+        <div class="legal-item reveal" data-retraso="1">
+          <span class="etiqueta-mono">IRCCA</span>
+          <div>
+            <h3>Instituto de Regulación y Control del Cannabis</h3>
+            <p>El club opera con autorización y fiscalización del IRCCA: registro de socios, límites de plantas y controles periódicos.</p>
+          </div>
+        </div>
+        <div class="legal-item reveal" data-retraso="2">
+          <span class="etiqueta-mono">Estatuto</span>
+          <div>
+            <h3>Asociación civil sin fines de lucro</h3>
+            <p>Entre 15 y 45 socios, hasta 99 plantas en floración y distribución exclusiva entre miembros registrados. Nada sale del club.</p>
+          </div>
+        </div>
+        <div class="legal-item reveal" data-retraso="3">
+          <span class="etiqueta-mono">Consumo</span>
+          <div>
+            <h3>Uso adulto y responsable</h3>
+            <p>Promovemos información basada en evidencia y reducción de riesgos y daños. El cannabis no se vende online ni a no socios.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="seccion faq" id="faq">
+    <div class="faq-caja">
+      <span class="pill reveal">Preguntas frecuentes</span>
+      <h2 class="titulo-seccion titulo-split">Lo que todos preguntan.</h2>
+
+      <div class="pregunta reveal">
+        <button class="pregunta-boton" aria-expanded="false">
+          <span class="pregunta-num">01</span>
+          <span class="pregunta-texto">¿Esto es realmente legal?</span>
+          <span class="pregunta-icono" aria-hidden="true"></span>
+        </button>
+        <div class="respuesta"><div class="respuesta-caja">
+          <p>Sí. Los clubes de membresía cannábicos están regulados en Uruguay por la Ley 19.172 desde 2013 y funcionan con autorización y control del IRCCA.</p>
+        </div></div>
+      </div>
+      <div class="pregunta reveal" data-retraso="1">
+        <button class="pregunta-boton" aria-expanded="false">
+          <span class="pregunta-num">02</span>
+          <span class="pregunta-texto">¿Quién puede asociarse?</span>
+          <span class="pregunta-icono" aria-hidden="true"></span>
+        </button>
+        <div class="respuesta"><div class="respuesta-caja">
+          <p>Cualquier persona mayor de 18 años que sea ciudadana uruguaya (natural o legal) o residente permanente, y que no esté registrada en otra vía de acceso (farmacia o autocultivo).</p>
+        </div></div>
+      </div>
+      <div class="pregunta reveal" data-retraso="2">
+        <button class="pregunta-boton" aria-expanded="false">
+          <span class="pregunta-num">03</span>
+          <span class="pregunta-texto">¿Cuánto cannabis puedo retirar?</span>
+          <span class="pregunta-icono" aria-hidden="true"></span>
+        </button>
+        <div class="respuesta"><div class="respuesta-caja">
+          <p>Hasta 40 gramos por mes por socio, con un máximo de 480 gramos al año, según los topes que fija la regulación.</p>
+        </div></div>
+      </div>
+      <div class="pregunta reveal" data-retraso="3">
+        <button class="pregunta-boton" aria-expanded="false">
+          <span class="pregunta-num">04</span>
+          <span class="pregunta-texto">¿Puedo estar en el club y comprar en farmacia?</span>
+          <span class="pregunta-icono" aria-hidden="true"></span>
+        </button>
+        <div class="respuesta"><div class="respuesta-caja">
+          <p>No. La ley permite una sola vía de acceso a la vez. Si estás registrado en farmacia o como autocultivador, tenés que darte de baja antes de asociarte al club.</p>
+        </div></div>
+      </div>
+      <div class="pregunta reveal" data-retraso="3">
+        <button class="pregunta-boton" aria-expanded="false">
+          <span class="pregunta-num">05</span>
+          <span class="pregunta-texto">¿Cuánto cuesta la membresía?</span>
+          <span class="pregunta-icono" aria-hidden="true"></span>
+        </button>
+        <div class="respuesta"><div class="respuesta-caja">
+          <p>El club no tiene fines de lucro: la cuota social solo cubre los costos reales de cultivo, sede y funcionamiento. Escribinos por WhatsApp y te pasamos el detalle actualizado.</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA FINAL ================= -->
+  <section class="cta-final">
+    <div class="cta-caja">
+      <span class="pill reveal">Sumate al club</span>
+      <h2 class="titulo-gigante titulo-split">Cultivemos confianza, juntos.</h2>
+      <p class="reveal" data-retraso="2">Información clara, cupos limitados por ley y una comunidad que hace las cosas bien.</p>
+      <a class="boton boton-lima reveal" data-retraso="3" href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">Hablemos <i class="flecha">↗</i></a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-caja">
+    <a class="marca" href="#inicio">
+      <svg class="marca-hoja" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1.2 2.6 1.8 5.2 1.8 7.8 1.4-2 3.3-3.4 5.7-4.2-.9 2.5-2.2 4.6-4 6.2 2.3-.4 4.5-.1 6.5.9-2.1 1.1-4.3 1.6-6.6 1.4 1.6 1.2 2.8 2.8 3.6 4.8-2.2-.5-4.1-1.5-5.6-3.1.1 1.9-.2 3.6-.9 5.2-.7-1.6-1-3.3-.9-5.2-1.5 1.6-3.4 2.6-5.6 3.1.8-2 2-3.6 3.6-4.8-2.3.2-4.5-.3-6.6-1.4 2-1 4.2-1.3 6.5-.9-1.8-1.6-3.1-3.7-4-6.2 2.4.8 4.3 2.2 5.7 4.2 0-2.6.6-5.2 1.8-7.8z"/></svg>
+      <span>COGOLLO <small>Club Cannábico</small></span>
+    </a>
+    <div class="footer-columnas">
+      <div>
+        <h4>Navegación</h4>
+        <a href="#club">El club</a>
+        <a href="#cultivo">Cultivo</a>
+        <a href="#membresia">Membresía</a>
+        <a href="#legal">Legal</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="https://wa.me/598XXXXXXXX" target="_blank" rel="noopener">WhatsApp ↗</a>
+        <a href="mailto:hola@cogollo.club">hola@cogollo.club</a>
+        <a>Montevideo, Uruguay</a>
+      </div>
+      <div>
+        <h4>Regulación</h4>
+        <a href="https://www.ircca.gub.uy" target="_blank" rel="noopener">IRCCA ↗</a>
+        <a href="https://www.impo.com.uy/bases/leyes/19172-2013" target="_blank" rel="noopener">Ley 19.172 ↗</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-legal">
+    <p>+18 · Sitio informativo · Sin venta online</p>
+    <p>© 2026 Cogollo Club Cannábico · Uruguay</p>
+  </div>
+</footer>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.172.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.172.0/examples/jsm/"
+  }
+}
+</script>
+<script src="js/main.js" defer></script>
+<script type="module" src="js/hero3d.js"></script>
+
+</body>
+</html>
